@@ -1,0 +1,348 @@
+body {
+  background: #fff;
+  font-family: 'Arvo', serif;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+  background: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/crossword.png');
+  overflow-x: none;
+}
+
+canvas {
+  -webkit-filter: blur(0.6px);
+  -moz-filter: blur(0.6px);
+  -o-filter: blur(0.6px);
+  -ms-filter: blur(0.6px);
+  filter: blur(0.6px);
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#content{
+    position: absolute;
+  margin: auto;
+  top: 0; right: 0; left: 0; bottom: 0;
+}
+
+a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-family: "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+  font-size: 12px;
+  margin: 0 2px;
+  padding: 0 5px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+  margin: 0 0 5px;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+p, ul {
+  margin: 15px 0;
+}
+
+ul {
+  padding-left: 30px;
+}
+
+.restsBox header{
+    z-index: 1001 !important;
+    background-color: #1b7b98;
+    padding: 15px;
+    position: relative;;
+    width: 100%;
+}
+
+.restsBox header img{
+    width: 52px;
+    margin-top: -8px;
+    display: inline-block;
+    float: left;
+    margin-right: 7px;
+    margin-left: 10px;
+    vertical-align: bottom;
+}
+
+.restsBox header h1{
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: text-top;
+
+}
+
+.searchBox{
+    float: right;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.searchBox.disabled{
+    pointer-events: none;
+}
+
+.search {
+  width: 100%;
+  position: relative
+}
+
+.searchTerm {
+  float: left;
+  width: 400px;
+  border: 3px solid #C34C39;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+  font-size: 16px;
+}
+
+.searchTerm:focus{
+  color: #000000;
+}
+
+.searchButton {
+  margin-left: 5px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #C34C39;
+  background: #C34C39;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.searchButton:focus{
+    outline:none !important;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.restList{
+    padding: 20px;
+    font-family: 'Arimo', sans-serif;
+}
+
+.restItem{
+    margin-top: 10px;
+}
+
+.rest-img {
+  display: block;
+  height: 10em;
+  width: 10em;
+  margin-right: auto;
+  margin-left: auto;
+  border: .5em solid #1b7b98;
+  border-radius: 100%;
+  box-shadow:  0 1px 0 0 rgba(0,0,0,.1);
+  background-color: #ffffff;
+  padding: 10px;
+  z-index: 100;
+}
+
+.rest-text {
+  margin-top: -3.5em;
+  padding: 5em 1.5em 1.5em 1.5em;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1)
+}
+
+.rest-name{
+  margin-right: -1em;
+  margin-bottom: .75em;
+  margin-left: -1em;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: .75em;
+  font-size: 1.5em;
+  text-align: center;
+  direction: rtl;
+}
+
+.rest-phone {
+    font-size: 1em;
+  color: #000000;
+  text-align: center;
+}
+
+
+/*Loading*/
+
+/* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  padding-right: 20px;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255, 0.7);
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 20px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 2500ms infinite linear;
+  -moz-animation: spinner 2500ms infinite linear;
+  -ms-animation: spinner 2500ms infinite linear;
+  -o-animation: spinner 2500ms infinite linear;
+  animation: spinner 2500ms infinite linear;
+  border-radius: 0.5em;
+  /*-webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;*/
+
+  -webkit-box-shadow: #1b7b98 1.5em 0 0 0, #1b7b98 1.1em 1.1em 0 0, #1b7b98 0 1.5em 0 0, #1b7b98 -1.1em 1.1em 0 0, #1b7b98 -1.5em 0 0 0, #1b7b98 -1.1em -1.1em 0 0, #1b7b98 0 -1.5em 0 0, #1b7b98 1.1em -1.1em 0 0;
+  box-shadow: #1b7b98 1.5em 0 0 0, #1b7b98 1.1em 1.1em 0 0, #1b7b98 0 1.5em 0 0, #1b7b98 -1.1em 1.1em 0 0, #1b7b98 -1.5em 0 0 0, #1b7b98 -1.1em -1.1em 0 0, #1b7b98 0 -1.5em 0 0, #1b7b98 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

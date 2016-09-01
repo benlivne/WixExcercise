@@ -1,0 +1,10 @@
+{
+  "name": "Wix Restaurants Server",
+  "description": "Code from the React tutorial",
+  "repository": "https://github.com/benlivne/WixExcercise",
+  "logo": "images/fast-food.svg",
+  "success_url": "/",
+  "env" : {
+    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+  }
+}
